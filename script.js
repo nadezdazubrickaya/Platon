@@ -9,6 +9,7 @@ const SPEED_SCALE_INCREASE = 0.00001
 const worldElem = document.querySelector("[data-world]")
 const scoreElem = document.querySelector("[data-score]")
 const startScreenElem = document.querySelector("[data-start-screen]")
+const body = document.querySelector(".body")
 
 setPixelToWorldScale()
 window.addEventListener("resize", setPixelToWorldScale)
@@ -91,3 +92,13 @@ function setPixelToWorldScale() {
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
 }
+
+let index = 1
+
+setInterval(() => {
+  if (index > 5) {
+    index = 0
+  }
+  document.body.style.background = `url('./imgs/ground${index}.jpg') center center/cover no-repeat`
+  index++
+}, 5000);
